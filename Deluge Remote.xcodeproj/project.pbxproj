@@ -13,6 +13,21 @@
 		0E17219C1E893E2E00261E76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E17219A1E893E2E00261E76 /* Main.storyboard */; };
 		0E17219E1E893E2E00261E76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E17219D1E893E2E00261E76 /* Assets.xcassets */; };
 		0E1721A11E893E2E00261E76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E17219F1E893E2E00261E76 /* LaunchScreen.storyboard */; };
+		0E1721D21E893F4100261E76 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1721D11E893F4100261E76 /* Security.framework */; };
+		0E1721D41E893F4800261E76 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1721D31E893F4800261E76 /* CFNetwork.framework */; };
+		0E1721D61E893F5000261E76 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1721D51E893F5000261E76 /* libz.tbd */; };
+		0E1721D81E893F7600261E76 /* NMSSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1721D71E893F7600261E76 /* NMSSH.framework */; };
+		0E1721DD1E8940BC00261E76 /* Status.py in Resources */ = {isa = PBXBuildFile; fileRef = 0E1721DC1E8940BC00261E76 /* Status.py */; };
+		0E1721DF1E8981A900261E76 /* PasswordManager.py in Resources */ = {isa = PBXBuildFile; fileRef = 0E1721DE1E8981A900261E76 /* PasswordManager.py */; };
+		0E1721E21E898CFD00261E76 /* RemoteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1721E11E898CFD00261E76 /* RemoteManager.m */; };
+		0E1721E91E8DC7E400261E76 /* KeychainConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1721E51E8DC7E400261E76 /* KeychainConfiguration.swift */; };
+		0E1721EA1E8DC7E400261E76 /* KeychainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1721E71E8DC7E400261E76 /* KeychainController.m */; };
+		0E1721EB1E8DC7E400261E76 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1721E81E8DC7E400261E76 /* KeychainPasswordItem.swift */; };
+		0E88F62B1E8DDF6300A1B621 /* icon_22x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E88F6271E8DDF6300A1B621 /* icon_22x29.png */; };
+		0E88F62C1E8DDF6300A1B621 /* icon_320x320.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E88F6281E8DDF6300A1B621 /* icon_320x320.png */; };
+		0E88F62D1E8DDF6300A1B621 /* icon_44x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E88F6291E8DDF6300A1B621 /* icon_44x58.png */; };
+		0E88F62E1E8DDF6300A1B621 /* icon_64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E88F62A1E8DDF6300A1B621 /* icon_64x64.png */; };
+		0E88F6311E8E31C200A1B621 /* TaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E88F6301E8E31C200A1B621 /* TaskManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +41,26 @@
 		0E17219D1E893E2E00261E76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E1721A01E893E2E00261E76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E1721A21E893E2E00261E76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E1721D11E893F4100261E76 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		0E1721D31E893F4800261E76 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		0E1721D51E893F5000261E76 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		0E1721D71E893F7600261E76 /* NMSSH.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NMSSH.framework; sourceTree = "<group>"; };
+		0E1721DC1E8940BC00261E76 /* Status.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = Status.py; sourceTree = "<group>"; };
+		0E1721DE1E8981A900261E76 /* PasswordManager.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = PasswordManager.py; sourceTree = "<group>"; };
+		0E1721E01E898CFD00261E76 /* RemoteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteManager.h; sourceTree = "<group>"; };
+		0E1721E11E898CFD00261E76 /* RemoteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteManager.m; sourceTree = "<group>"; };
+		0E1721E31E8DC79200261E76 /* Deluge Remote.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Deluge Remote.entitlements"; sourceTree = "<group>"; };
+		0E1721E41E8DC7E300261E76 /* Deluge Remote-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Deluge Remote-Bridging-Header.h"; sourceTree = "<group>"; };
+		0E1721E51E8DC7E400261E76 /* KeychainConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainConfiguration.swift; sourceTree = "<group>"; };
+		0E1721E61E8DC7E400261E76 /* KeychainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainController.h; sourceTree = "<group>"; };
+		0E1721E71E8DC7E400261E76 /* KeychainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainController.m; sourceTree = "<group>"; };
+		0E1721E81E8DC7E400261E76 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
+		0E88F6271E8DDF6300A1B621 /* icon_22x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_22x29.png; sourceTree = "<group>"; };
+		0E88F6281E8DDF6300A1B621 /* icon_320x320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_320x320.png; sourceTree = "<group>"; };
+		0E88F6291E8DDF6300A1B621 /* icon_44x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_44x58.png; sourceTree = "<group>"; };
+		0E88F62A1E8DDF6300A1B621 /* icon_64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_64x64.png; sourceTree = "<group>"; };
+		0E88F62F1E8E31C200A1B621 /* TaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskManager.h; sourceTree = "<group>"; };
+		0E88F6301E8E31C200A1B621 /* TaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +68,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E1721D81E893F7600261E76 /* NMSSH.framework in Frameworks */,
+				0E1721D61E893F5000261E76 /* libz.tbd in Frameworks */,
+				0E1721D41E893F4800261E76 /* CFNetwork.framework in Frameworks */,
+				0E1721D21E893F4100261E76 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,8 +81,10 @@
 		0E1721851E893E2E00261E76 = {
 			isa = PBXGroup;
 			children = (
+				0E1721DB1E8940BC00261E76 /* Resources */,
 				0E1721901E893E2E00261E76 /* Deluge Remote */,
 				0E17218F1E893E2E00261E76 /* Products */,
+				0E1721CE1E893F2F00261E76 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,15 +99,25 @@
 		0E1721901E893E2E00261E76 /* Deluge Remote */ = {
 			isa = PBXGroup;
 			children = (
+				0E1721E31E8DC79200261E76 /* Deluge Remote.entitlements */,
 				0E1721941E893E2E00261E76 /* AppDelegate.h */,
 				0E1721951E893E2E00261E76 /* AppDelegate.m */,
 				0E1721971E893E2E00261E76 /* ViewController.h */,
 				0E1721981E893E2E00261E76 /* ViewController.m */,
+				0E88F62F1E8E31C200A1B621 /* TaskManager.h */,
+				0E88F6301E8E31C200A1B621 /* TaskManager.m */,
+				0E1721E01E898CFD00261E76 /* RemoteManager.h */,
+				0E1721E11E898CFD00261E76 /* RemoteManager.m */,
+				0E1721E81E8DC7E400261E76 /* KeychainPasswordItem.swift */,
+				0E1721E51E8DC7E400261E76 /* KeychainConfiguration.swift */,
+				0E1721E61E8DC7E400261E76 /* KeychainController.h */,
+				0E1721E71E8DC7E400261E76 /* KeychainController.m */,
 				0E17219A1E893E2E00261E76 /* Main.storyboard */,
 				0E17219D1E893E2E00261E76 /* Assets.xcassets */,
 				0E17219F1E893E2E00261E76 /* LaunchScreen.storyboard */,
 				0E1721A21E893E2E00261E76 /* Info.plist */,
 				0E1721911E893E2E00261E76 /* Supporting Files */,
+				0E1721E41E8DC7E300261E76 /* Deluge Remote-Bridging-Header.h */,
 			);
 			path = "Deluge Remote";
 			sourceTree = "<group>";
@@ -77,6 +128,38 @@
 				0E1721921E893E2E00261E76 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0E1721CE1E893F2F00261E76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E1721D71E893F7600261E76 /* NMSSH.framework */,
+				0E1721D51E893F5000261E76 /* libz.tbd */,
+				0E1721D31E893F4800261E76 /* CFNetwork.framework */,
+				0E1721D11E893F4100261E76 /* Security.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0E1721DB1E8940BC00261E76 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0E88F6261E8DDF6300A1B621 /* Images */,
+				0E1721DE1E8981A900261E76 /* PasswordManager.py */,
+				0E1721DC1E8940BC00261E76 /* Status.py */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0E88F6261E8DDF6300A1B621 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0E88F6271E8DDF6300A1B621 /* icon_22x29.png */,
+				0E88F6281E8DDF6300A1B621 /* icon_320x320.png */,
+				0E88F6291E8DDF6300A1B621 /* icon_44x58.png */,
+				0E88F62A1E8DDF6300A1B621 /* icon_64x64.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -111,7 +194,13 @@
 					0E17218D1E893E2E00261E76 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 6E75K4G54T;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -138,8 +227,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E88F62E1E8DDF6300A1B621 /* icon_64x64.png in Resources */,
+				0E1721DF1E8981A900261E76 /* PasswordManager.py in Resources */,
+				0E1721DD1E8940BC00261E76 /* Status.py in Resources */,
 				0E1721A11E893E2E00261E76 /* LaunchScreen.storyboard in Resources */,
+				0E88F62C1E8DDF6300A1B621 /* icon_320x320.png in Resources */,
 				0E17219E1E893E2E00261E76 /* Assets.xcassets in Resources */,
+				0E88F62B1E8DDF6300A1B621 /* icon_22x29.png in Resources */,
+				0E88F62D1E8DDF6300A1B621 /* icon_44x58.png in Resources */,
 				0E17219C1E893E2E00261E76 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,8 +247,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E1721991E893E2E00261E76 /* ViewController.m in Sources */,
+				0E1721E21E898CFD00261E76 /* RemoteManager.m in Sources */,
 				0E1721961E893E2E00261E76 /* AppDelegate.m in Sources */,
+				0E1721EB1E8DC7E400261E76 /* KeychainPasswordItem.swift in Sources */,
+				0E1721EA1E8DC7E400261E76 /* KeychainController.m in Sources */,
 				0E1721931E893E2E00261E76 /* main.m in Sources */,
+				0E88F6311E8E31C200A1B621 /* TaskManager.m in Sources */,
+				0E1721E91E8DC7E400261E76 /* KeychainConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,11 +373,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Deluge Remote/Deluge Remote.entitlements";
 				DEVELOPMENT_TEAM = 6E75K4G54T;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Deluge Remote/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.isklikas.Deluge-Remote";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Deluge Remote/Deluge Remote-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -285,11 +394,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Deluge Remote/Deluge Remote.entitlements";
 				DEVELOPMENT_TEAM = 6E75K4G54T;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Deluge Remote/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.isklikas.Deluge-Remote";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Deluge Remote/Deluge Remote-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -312,6 +429,7 @@
 				0E1721A71E893E2E00261E76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

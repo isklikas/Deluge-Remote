@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Security/Security.h>
+#import "KeychainController.h"
+#import "RemoteManager.h"
+#import "TaskManager.h"
 
 @interface ViewController : UIViewController
 
++ (NSArray *) remainingTasks;
++ (void) addTask:(NSURL *)task;
 
 @end
 
