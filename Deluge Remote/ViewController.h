@@ -16,6 +16,7 @@
 
 + (NSArray *) remainingTasks;
 + (void) addTask:(NSURL *)task;
+- (void)respondToTorrent;
 
 @end
 

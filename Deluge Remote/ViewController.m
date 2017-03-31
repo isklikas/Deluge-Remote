@@ -26,11 +26,21 @@
     NSMutableArray *tasks = [NSMutableArray arrayWithArray:tManager.remainingTasks];
     [tasks addObject:task];
     tManager.remainingTasks = tasks;
+    if (tManager.controlInstance) {
+        [(ViewController *)tManager.controlInstance respondToTorrent];
+    }
+}
+
+- (void)respondToTorrent {
+    NSLog(@"YIPEEEEE");
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    TaskManager *tMan = [TaskManager sharedInstance];
+    tMan.controlInstance = self;
+    
     if ([ViewController remainingTasks].count >0) {
-        NSLog(@"TIME TO ACT UP YO");
+        [self respondToTorrent];
     }
     NSError *error;
     NSArray *passwordItems = [KeychainPasswordItem passwordItemsForService:@"com.isklikas.Deluge-Remote" accessGroup:nil error:&error];
@@ -52,6 +62,10 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    TaskManager *tManager = [TaskManager sharedInstance];
+    tManager.controlInstance = nil;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
