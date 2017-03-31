@@ -15,11 +15,6 @@
 
 @implementation ViewController
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    //UIAlertView *aView = [[UIAlertView alloc] initWithTitle:@"T" message:@"m" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"ok", nil];
-    //[aView show];
-    NSLog(@"A change occured");
-}
 
 + (NSArray *) remainingTasks {
     TaskManager *tManager = [TaskManager sharedInstance];
@@ -28,15 +23,15 @@
 
 + (void) addTask:(NSURL *)task {
     TaskManager *tManager = [TaskManager sharedInstance];
-    NSMutableArray *tasks = tManager.remainingTasks;
+    NSMutableArray *tasks = [NSMutableArray arrayWithArray:tManager.remainingTasks];
     [tasks addObject:task];
     tManager.remainingTasks = tasks;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    TaskManager *tManager = [TaskManager sharedInstance];
-    NSLog(@"%@", tManager);
-    [tManager addItemsObserver:self];
+    if ([ViewController remainingTasks].count >0) {
+        NSLog(@"TIME TO ACT UP YO");
+    }
     NSError *error;
     NSArray *passwordItems = [KeychainPasswordItem passwordItemsForService:@"com.isklikas.Deluge-Remote" accessGroup:nil error:&error];
     if (passwordItems.count == 0 || [[NSUserDefaults standardUserDefaults] stringForKey:@"serverAddress"] == nil || [[NSUserDefaults standardUserDefaults] stringForKey:@"delugeHomeLocation"] == nil) {
@@ -55,14 +50,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-}
-
-
-- (void)viewWillDisappear:(BOOL)animated {
-    TaskManager *tManager = [TaskManager sharedInstance];
-    [tManager removeItemsObserver:self];
-
 }
 
 

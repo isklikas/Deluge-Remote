@@ -20,18 +20,6 @@
     return sharedInstance;
 }
 
-- (NSMutableArray *)remTasks {
-    return [self mutableArrayValueForKey:@"_remTasks"];
-}
-
-- (void)addItemsObserver:(id)object {
-    [self addObserver:object forKeyPath:@"_remTasks.@count" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil];
-}
-
-- (void)removeItemsObserver:(id)object {
-    [self removeObserver:object forKeyPath:@"_remTasks.@count" context:nil];
-}
-
 //    You need need to override init method as well, because developer can call [[MyClass alloc]init] method also. that time also we have to return sharedInstance only.
 
 

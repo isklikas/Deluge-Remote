@@ -10,11 +10,6 @@
 
 @interface TaskManager : NSObject
 
-@property (nonatomic) NSMutableArray *remainingTasks;
+@property (retain) NSMutableArray *remainingTasks;
 + (instancetype)sharedInstance;
-- (NSMutableArray *)remTasks;
-
-- (void)addItemsObserver:(id)object;
-- (void)removeItemsObserver:(id)object;
-
 @end
