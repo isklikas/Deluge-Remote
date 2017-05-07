@@ -2,30 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>magnet</string>
-			</array>
-			<key>CFBundleURLName</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-		</dict>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>Torrent</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
 				<string>torrent</string>
 			</array>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
 			<key>CFBundleTypeIconFiles</key>
 			<array>
 				<string>icon_22x29</string>
@@ -35,10 +20,14 @@
 			</array>
 			<key>CFBundleTypeName</key>
 			<string>BitTorrent Document</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>public.item</string>
 			</array>
+			<key>NSPersistentStoreTypeKey</key>
+			<string>Torrent</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
@@ -53,6 +42,19 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.isklikas.magnet</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>magnet</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>

@@ -15,12 +15,9 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[TaskManager alloc] init];
-        // Perform other initialisation...
     });
     return sharedInstance;
 }
-
-//    You need need to override init method as well, because developer can call [[MyClass alloc]init] method also. that time also we have to return sharedInstance only.
 
 
 @end

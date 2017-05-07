@@ -23,7 +23,8 @@ def on_connect_success(result):
     # uses some python magic
     # list of commands available at https://deluge.readthedocs.org/en/develop/core/rpc.html#remote-api
     # list of statuses available at http://www.rasterbar.com/products/libtorrent/manual.html#status
-    client.core.get_session_status(["payload_upload_rate", "payload_download_rate"]).addCallback(on_get_status) #TODO: Delete this line and replace it by code depending on the task. The new file will be renamed with a temporary (and to be deleted) name.
+    [COMMAND_LINES_GO_HERE]
+    #client.core.get_session_status(["payload_upload_rate", "payload_download_rate"]).addCallback(on_get_status) #TODO: Delete this line and replace it by code depending on the task. The new file will be renamed with a temporary (and to be deleted) name.
  
 d.addCallback(on_connect_success)
  

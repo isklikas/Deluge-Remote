@@ -10,6 +10,9 @@
 #import <NMSSH/NMSSH.h>
 #import <Security/Security.h>
 #import "KeychainController.h"
+#import "GetDataTask.h"
+#import "AddTorrentTask.h"
+
 
 @interface RemoteManager : NSObject
 @property (retain) NMSSHSession *session;
@@ -18,6 +21,8 @@
 - (id) initWithConnection;
 - (void)setUpPass;
 - (void)endConnection;
-- (void)getStatus;
+- (NSString *)getStatus;
+- (NSDictionary *)clientDefaults;
+- (BOOL)addMagnet:(NSURL *)magnet;
 
 @end

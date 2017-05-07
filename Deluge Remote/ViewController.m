@@ -32,16 +32,39 @@
 }
 
 - (void)respondToTorrent {
+    NSLog(@"%@", _remoteManager);
+    TaskManager *tManager = [TaskManager sharedInstance];
+    NSMutableArray *remainingTasks = tManager.remainingTasks;
+    for (NSURL *task in remainingTasks) {
+        NSString *scheme = [task scheme];
+        if ([scheme isEqualToString:@"magnet"]) {
+            NSLog(@"%@", _remoteManager);
+            BOOL success = [_remoteManager addMagnet:task];
+            if (success) {
+                NSLog(@"yayy");
+            }
+        }
+        else {
+            
+        }
+    }
+    /*
+    NSURL *url = [NSMutableArray arrayWithArray:tManager.remainingTasks][0];
+    NSString *scheme = [url scheme];
+    NSLog(@"url recieved: %@", url);
+    NSLog(@"Called with: %@ scheme", [url scheme]);
+    NSLog(@"query string: %@", [url query]);
+    NSLog(@"host: %@", [url host]);
+    NSLog(@"url path: %@", [url path]);
+    
+    
     NSLog(@"YIPEEEEE");
+     */
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     TaskManager *tMan = [TaskManager sharedInstance];
     tMan.controlInstance = self;
-    
-    if ([ViewController remainingTasks].count >0) {
-        [self respondToTorrent];
-    }
     NSError *error;
     NSArray *passwordItems = [KeychainPasswordItem passwordItemsForService:@"com.isklikas.Deluge-Remote" accessGroup:nil error:&error];
     if (passwordItems.count == 0 || [[NSUserDefaults standardUserDefaults] stringForKey:@"serverAddress"] == nil || [[NSUserDefaults standardUserDefaults] stringForKey:@"delugeHomeLocation"] == nil) {
@@ -52,9 +75,17 @@
     else {
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
             RemoteManager *mngr = [[RemoteManager alloc] initWithConnection];
-            [mngr getStatus];
-            [mngr endConnection];
-        });
+            self.remoteManager = mngr;
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UINavigationController * vc = (UINavigationController *)[sb instantiateViewControllerWithIdentifier:@"AddNavigationController"];
+            //NSLog(@"defaults %@", [mngr clientDefaults]);
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                [self showViewController:vc sender:nil];
+                //Run UI Updates
+            });
+            if ([ViewController remainingTasks].count > 0) {
+                [self respondToTorrent];
+            }        });
     }
 }
 
@@ -65,6 +96,12 @@
 - (void)viewWillDisappear:(BOOL)animated {
     TaskManager *tManager = [TaskManager sharedInstance];
     tManager.controlInstance = nil;
+    if (_remoteManager) {
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+            [self.remoteManager endConnection];
+            self.remoteManager = nil;
+        });
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -25,12 +25,14 @@
 }
 */
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    /*
     NSString *scheme = [url scheme];
     NSLog(@"url recieved: %@", url);
     NSLog(@"Called with: %@ scheme", [url scheme]);
     NSLog(@"query string: %@", [url query]);
     NSLog(@"host: %@", [url host]);
     NSLog(@"url path: %@", [url path]);
+     */
     [ViewController addTask:url];
     //NSDictionary *dict = [self parseQueryString:[url query]];
     //NSLog(@"query dict: %@", dict);

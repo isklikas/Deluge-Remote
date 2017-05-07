@@ -11,8 +11,11 @@
 #import "KeychainController.h"
 #import "RemoteManager.h"
 #import "TaskManager.h"
+#import "AddViewController.h"
 
 @interface ViewController : UIViewController
+
+@property RemoteManager *remoteManager;
 
 + (NSArray *) remainingTasks;
 + (void) addTask:(NSURL *)task;
