@@ -48,6 +48,19 @@
     [passManager writeToFile:passManPath atomically:TRUE encoding:NSUTF8StringEncoding error:nil];
 }
 
+- (NSArray *)directoriesInLocation:(NSString *)location {
+    NSMutableArray *resultingDirs = [NSMutableArray new];
+    NSString *dirs = [_session.channel execute:[NSString stringWithFormat:@"cd \"%@\";  ls -d */", location] error:nil];
+    NSArray *tmpDirs = [dirs componentsSeparatedByString:@"\n"];
+    for (NSString *folderName in tmpDirs) {
+        NSString *dirName = [folderName componentsSeparatedByString:@"/"][0];
+        if (dirName.length > 0) {
+            [resultingDirs addObject:dirName];
+        }
+    }
+    return resultingDirs;
+}
+
 - (NSString *)getStatus {
     GetDataTask *dTask = [[GetDataTask alloc] init];
     dTask.session = _session;

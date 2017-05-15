@@ -21,6 +21,7 @@
 - (id) initWithConnection;
 - (void)setUpPass;
 - (void)endConnection;
+- (NSArray *)directoriesInLocation:(NSString *)location;
 - (NSString *)getStatus;
 - (NSDictionary *)clientDefaults;
 - (BOOL)addMagnet:(NSURL *)magnet;

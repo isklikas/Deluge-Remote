@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hhn-eM-Ztm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hhn-eM-Ztm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -860,8 +860,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Download" id="2UC-ic-gON">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="JgK-Qd-YdU"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="BcF-Ik-0o9"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="JgK-Qd-YdU">
+                            <connections>
+                                <action selector="cancel:" destination="y6F-tC-VjE" id="Ko5-3W-l2i"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="BcF-Ik-0o9">
+                            <connections>
+                                <action selector="done:" destination="y6F-tC-VjE" id="vMa-9h-FOc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8yO-of-k0R" userLabel="First Responder" sceneMemberID="firstResponder"/>

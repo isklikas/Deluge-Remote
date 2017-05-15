@@ -11,10 +11,13 @@
 #import "ClientPropertyCell.h"
 #import "StepperPropertyCell.h"
 #import "SwitchPropertyCell.h"
+#import "AddViewDirectoryController.h"
 
 @interface AddViewController : UITableViewController
 
 @property RemoteManager *remoteManager;
+@property (strong) NSDictionary *propertiesOnAppear;
+@property NSIndexPath *idPathOnAppear;
 @property NSDictionary *clientDefaults;
 @property NSMutableDictionary *manifestedProperties;
 @property NSMutableDictionary *stepperValues;

@@ -31,8 +31,25 @@
 
 @implementation AddViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    if (_propertiesOnAppear != nil) {
+        for (NSString *key in _propertiesOnAppear.allKeys) {
+            id item = [_propertiesOnAppear objectForKey:key];
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:_idPathOnAppear];
+            if ([cell isKindOfClass:[ClientPropertyCell class]]) {
+                cell.detailTextLabel.text = item;
+            }
+            [self.manifestedProperties setObject:item forKey:key];
+        }
+    }
+    _propertiesOnAppear = nil;
+    _idPathOnAppear = nil;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _propertiesOnAppear = nil;
+    _idPathOnAppear = nil;
     self.manifestedProperties = [NSMutableDictionary new];
     NSNumber *defaultVal = @0;
     self.stepperValues = [NSMutableDictionary dictionaryWithDictionary:@{@"max_connections":defaultVal, @"max_upload_slots":defaultVal, @"max_upload_speed":defaultVal, @"max_download_speed":defaultVal, @"stop_ratio":defaultVal}];
@@ -205,6 +222,30 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    id cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    if ([cell isKindOfClass:[ClientPropertyCell class]]) {
+        if ([[(ClientPropertyCell *)cell keyString] isEqualToString:@"download_location"] || [[(ClientPropertyCell *)cell keyString] isEqualToString:@"move_completed_path"]) {
+            NSString *keyStr = [[(ClientPropertyCell *)cell keyString] isEqualToString:@"download_location"]? @"download_location" : @"move_completed_path";
+            AddViewDirectoryController *addDirController = [[AddViewDirectoryController alloc] init];
+            addDirController.remoteManager = self.remoteManager;
+            NSDictionary *parser = [self.manifestedProperties objectForKey:keyStr] ? self.manifestedProperties : self.clientDefaults;
+            NSString *location = [parser objectForKey:keyStr];
+            if (location.length == 0) {
+                location = @"/";
+            }
+            _idPathOnAppear = indexPath;
+            addDirController.rootDir = location;
+            addDirController.parent = self;
+            addDirController.editingProperty = keyStr;
+            [self.navigationController pushViewController:addDirController animated:TRUE];
+        }
+    }
+}
+
+- (void)taskEnded {
     if (_remoteManager) {
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
             [self.remoteManager endConnection];
@@ -212,6 +253,15 @@
         });
     }
 }
+
+- (IBAction)cancel:(id)sender {
+    [self taskEnded];
+}
+
+- (IBAction)done:(id)sender {
+    [self taskEnded];
+}
+
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
