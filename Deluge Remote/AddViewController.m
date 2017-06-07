@@ -85,35 +85,30 @@
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     if (![cell isKindOfClass:[ClientPropertyCell class]]) {
         if (self.assignedTasks.count > 1) {
-            
+            RemoteTorrent *rTorrent = [[RemoteTorrent alloc] initWithArray:self.assignedTasks];
+            self.rTorrent = rTorrent;
         }
         else {
-            if (self.assignedTasks.count == 1) {
-                NSURL *url = self.assignedTasks[0];
-                if ([url.scheme isEqualToString:@"magnet"]) {
-                    NSString *link = [url description];
-                    cell.detailTextLabel.text = link;
-                    RemoteTorrent *rTorrent = [[RemoteTorrent alloc] initWithMagnetLink:url];
-                    self.rTorrent = rTorrent;
-                }
-                else {
-                    NSString *filename = [[[url path] componentsSeparatedByString:@"/"] lastObject];
-                    cell.detailTextLabel.text = filename;
-                    RemoteTorrent *rTorrent = [[RemoteTorrent alloc] initWithFileURL:url];
-                    self.rTorrent = rTorrent;
-                    /*
-                     NSString *scheme = [url scheme];
-                     NSLog(@"url recieved: %@", url);
-                     NSLog(@"Called with: %@ scheme", [url scheme]);
-                     NSLog(@"query string: %@", [url query]);
-                     NSLog(@"host: %@", [url host]);
-                     NSLog(@"url path: %@", [url path]);
-                     */
-                }
+            NSURL *url = self.assignedTasks[0];
+            if ([url.scheme isEqualToString:@"magnet"]) {
+                NSString *link = [url description];
+                cell.detailTextLabel.text = link;
+                RemoteTorrent *rTorrent = [[RemoteTorrent alloc] initWithMagnetLink:url];
+                self.rTorrent = rTorrent;
             }
             else {
-                RemoteTorrent *rTorrent = [[RemoteTorrent alloc] initWithArray:self.assignedTasks];
+                NSString *filename = [[[url path] componentsSeparatedByString:@"/"] lastObject];
+                cell.detailTextLabel.text = filename;
+                RemoteTorrent *rTorrent = [[RemoteTorrent alloc] initWithFileURL:url];
                 self.rTorrent = rTorrent;
+                /*
+                    NSString *scheme = [url scheme];
+                    NSLog(@"url recieved: %@", url);
+                    NSLog(@"Called with: %@ scheme", [url scheme]);
+                    NSLog(@"query string: %@", [url query]);
+                    NSLog(@"host: %@", [url host]);
+                    NSLog(@"url path: %@", [url path]);
+                */
             }
         }
     }
