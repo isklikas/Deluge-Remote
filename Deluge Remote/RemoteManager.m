@@ -75,12 +75,14 @@
     return defaults;
 }
 
+/*
 - (BOOL)addMagnet:(NSURL *)magnet {
     AddTorrentTask *aTask = [[AddTorrentTask alloc] init];
     aTask.session = _session;
     BOOL status = [aTask addTorrentMagnetTask:magnet];
     return status;
 }
+*/
 
 - (void) endConnection {
     NSError *error;

@@ -24,15 +24,16 @@
 		0E1721EA1E8DC7E400261E76 /* KeychainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1721E71E8DC7E400261E76 /* KeychainController.m */; };
 		0E1721EB1E8DC7E400261E76 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1721E81E8DC7E400261E76 /* KeychainPasswordItem.swift */; };
 		0E45A0601E8F018B006425E3 /* TaskWithOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E45A05F1E8F018B006425E3 /* TaskWithOptions.m */; };
-		0E45A0631E8F04DD006425E3 /* AddTorrentTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E45A0621E8F04DD006425E3 /* AddTorrentTask.m */; };
 		0E45A0661E8F0645006425E3 /* SetTorrentOptionsTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E45A0651E8F0645006425E3 /* SetTorrentOptionsTask.m */; };
-		0E45A06B1E8FD698006425E3 /* TorrentTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E45A06A1E8FD698006425E3 /* TorrentTask.m */; };
 		0E45A06E1E8FD6B7006425E3 /* GetDataTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E45A06D1E8FD6B7006425E3 /* GetDataTask.m */; };
 		0E45A0701E8FD700006425E3 /* Task.py in Resources */ = {isa = PBXBuildFile; fileRef = 0E45A06F1E8FD700006425E3 /* Task.py */; };
 		0E45A0761E914A2B006425E3 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E45A0751E914A2B006425E3 /* AddViewController.m */; };
 		0E45A0791E9D9631006425E3 /* ClientPropertyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E45A0781E9D9631006425E3 /* ClientPropertyCell.m */; };
 		0E45A07C1E9F8072006425E3 /* StepperPropertyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E45A07B1E9F8072006425E3 /* StepperPropertyCell.m */; };
 		0E45A07F1E9F80AA006425E3 /* SwitchPropertyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E45A07E1E9F80AA006425E3 /* SwitchPropertyCell.m */; };
+		0E80DB6A1EE897E7003955FA /* TorrentTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E80DB691EE897E7003955FA /* TorrentTask.m */; };
+		0E80DB6D1EE8988F003955FA /* RemoteTorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E80DB6C1EE8988F003955FA /* RemoteTorrent.m */; };
+		0E80DB6F1EE89C0A003955FA /* AddTorrentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E80DB6E1EE89C0A003955FA /* AddTorrentTask.swift */; };
 		0E88F62B1E8DDF6300A1B621 /* icon_22x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E88F6271E8DDF6300A1B621 /* icon_22x29.png */; };
 		0E88F62C1E8DDF6300A1B621 /* icon_320x320.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E88F6281E8DDF6300A1B621 /* icon_320x320.png */; };
 		0E88F62D1E8DDF6300A1B621 /* icon_44x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E88F6291E8DDF6300A1B621 /* icon_44x58.png */; };
@@ -84,12 +85,8 @@
 		0E1721E81E8DC7E400261E76 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		0E45A05E1E8F018B006425E3 /* TaskWithOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskWithOptions.h; sourceTree = "<group>"; };
 		0E45A05F1E8F018B006425E3 /* TaskWithOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskWithOptions.m; sourceTree = "<group>"; };
-		0E45A0611E8F04DD006425E3 /* AddTorrentTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTorrentTask.h; sourceTree = "<group>"; };
-		0E45A0621E8F04DD006425E3 /* AddTorrentTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTorrentTask.m; sourceTree = "<group>"; };
 		0E45A0641E8F0645006425E3 /* SetTorrentOptionsTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetTorrentOptionsTask.h; sourceTree = "<group>"; };
 		0E45A0651E8F0645006425E3 /* SetTorrentOptionsTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetTorrentOptionsTask.m; sourceTree = "<group>"; };
-		0E45A0691E8FD698006425E3 /* TorrentTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentTask.h; sourceTree = "<group>"; };
-		0E45A06A1E8FD698006425E3 /* TorrentTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentTask.m; sourceTree = "<group>"; };
 		0E45A06C1E8FD6B7006425E3 /* GetDataTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetDataTask.h; sourceTree = "<group>"; };
 		0E45A06D1E8FD6B7006425E3 /* GetDataTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetDataTask.m; sourceTree = "<group>"; };
 		0E45A06F1E8FD700006425E3 /* Task.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = Task.py; sourceTree = "<group>"; };
@@ -101,6 +98,11 @@
 		0E45A07B1E9F8072006425E3 /* StepperPropertyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepperPropertyCell.m; sourceTree = "<group>"; };
 		0E45A07D1E9F80AA006425E3 /* SwitchPropertyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchPropertyCell.h; sourceTree = "<group>"; };
 		0E45A07E1E9F80AA006425E3 /* SwitchPropertyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchPropertyCell.m; sourceTree = "<group>"; };
+		0E80DB681EE897E7003955FA /* TorrentTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentTask.h; sourceTree = "<group>"; };
+		0E80DB691EE897E7003955FA /* TorrentTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentTask.m; sourceTree = "<group>"; };
+		0E80DB6B1EE8988F003955FA /* RemoteTorrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteTorrent.h; sourceTree = "<group>"; };
+		0E80DB6C1EE8988F003955FA /* RemoteTorrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteTorrent.m; sourceTree = "<group>"; };
+		0E80DB6E1EE89C0A003955FA /* AddTorrentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTorrentTask.swift; sourceTree = "<group>"; };
 		0E88F6271E8DDF6300A1B621 /* icon_22x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_22x29.png; sourceTree = "<group>"; };
 		0E88F6281E8DDF6300A1B621 /* icon_320x320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_320x320.png; sourceTree = "<group>"; };
 		0E88F6291E8DDF6300A1B621 /* icon_44x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_44x58.png; sourceTree = "<group>"; };
@@ -258,14 +260,15 @@
 		0E45A0681E8F085E006425E3 /* Torrent Tasks */ = {
 			isa = PBXGroup;
 			children = (
-				0E45A0691E8FD698006425E3 /* TorrentTask.h */,
-				0E45A06A1E8FD698006425E3 /* TorrentTask.m */,
+				0E80DB681EE897E7003955FA /* TorrentTask.h */,
+				0E80DB691EE897E7003955FA /* TorrentTask.m */,
 				0E45A06C1E8FD6B7006425E3 /* GetDataTask.h */,
 				0E45A06D1E8FD6B7006425E3 /* GetDataTask.m */,
 				0E45A05E1E8F018B006425E3 /* TaskWithOptions.h */,
 				0E45A05F1E8F018B006425E3 /* TaskWithOptions.m */,
-				0E45A0611E8F04DD006425E3 /* AddTorrentTask.h */,
-				0E45A0621E8F04DD006425E3 /* AddTorrentTask.m */,
+				0E80DB6B1EE8988F003955FA /* RemoteTorrent.h */,
+				0E80DB6C1EE8988F003955FA /* RemoteTorrent.m */,
+				0E80DB6E1EE89C0A003955FA /* AddTorrentTask.swift */,
 				0E45A0641E8F0645006425E3 /* SetTorrentOptionsTask.h */,
 				0E45A0651E8F0645006425E3 /* SetTorrentOptionsTask.m */,
 			);
@@ -419,7 +422,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E1721991E893E2E00261E76 /* ViewController.m in Sources */,
-				0E45A0631E8F04DD006425E3 /* AddTorrentTask.m in Sources */,
 				0EBF8B7E1EC152C800C1E738 /* RATreeNodeItem+Private.m in Sources */,
 				0EBF8B7F1EC152C800C1E738 /* RATreeNodeItem.m in Sources */,
 				0E45A0661E8F0645006425E3 /* SetTorrentOptionsTask.m in Sources */,
@@ -431,11 +433,11 @@
 				0E45A0601E8F018B006425E3 /* TaskWithOptions.m in Sources */,
 				0EBF8B801EC152C800C1E738 /* RATreeView+Enums.m in Sources */,
 				0EBF8B821EC152C800C1E738 /* RATreeView+RATreeNodeCollectionControllerDataSource.m in Sources */,
-				0E45A06B1E8FD698006425E3 /* TorrentTask.m in Sources */,
 				0EBF8B7B1EC152C800C1E738 /* RATreeNode.m in Sources */,
 				0E45A06E1E8FD6B7006425E3 /* GetDataTask.m in Sources */,
 				0EBF8B781EC152C800C1E738 /* RABatchChangeEntity.m in Sources */,
 				0E45A07C1E9F8072006425E3 /* StepperPropertyCell.m in Sources */,
+				0E80DB6A1EE897E7003955FA /* TorrentTask.m in Sources */,
 				0E1721961E893E2E00261E76 /* AppDelegate.m in Sources */,
 				0EBF8B7A1EC152C800C1E738 /* RATableView.m in Sources */,
 				0EBF8BD51EC158EB00C1E738 /* RADataObject.m in Sources */,
@@ -444,6 +446,7 @@
 				0EBF8B561EC132AF00C1E738 /* AddViewDirectoryController.m in Sources */,
 				0EBF8BD61EC158EB00C1E738 /* RATableViewCell.m in Sources */,
 				0E1721EB1E8DC7E400261E76 /* KeychainPasswordItem.swift in Sources */,
+				0E80DB6D1EE8988F003955FA /* RemoteTorrent.m in Sources */,
 				0E1721EA1E8DC7E400261E76 /* KeychainController.m in Sources */,
 				0EBF8B841EC152C800C1E738 /* RATreeView+TableViewDelegate.m in Sources */,
 				0E45A0761E914A2B006425E3 /* AddViewController.m in Sources */,
@@ -451,6 +454,7 @@
 				0EBF8B791EC152C800C1E738 /* RABatchChanges.m in Sources */,
 				0E88F6311E8E31C200A1B621 /* TaskManager.m in Sources */,
 				0E1721E91E8DC7E400261E76 /* KeychainConfiguration.swift in Sources */,
+				0E80DB6F1EE89C0A003955FA /* AddTorrentTask.swift in Sources */,
 				0EBF8B811EC152C800C1E738 /* RATreeView+Private.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

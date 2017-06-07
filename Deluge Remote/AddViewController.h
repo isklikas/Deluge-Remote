@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RemoteManager.h"
+#import "RemoteTorrent.h"
 #import "ClientPropertyCell.h"
 #import "StepperPropertyCell.h"
 #import "SwitchPropertyCell.h"
@@ -16,6 +17,8 @@
 @interface AddViewController : UITableViewController
 
 @property RemoteManager *remoteManager;
+@property RemoteTorrent *rTorrent;
+@property NSArray *assignedTasks;
 @property (strong) NSDictionary *propertiesOnAppear;
 @property NSIndexPath *idPathOnAppear;
 @property NSDictionary *clientDefaults;

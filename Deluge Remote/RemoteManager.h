@@ -11,7 +11,6 @@
 #import <Security/Security.h>
 #import "KeychainController.h"
 #import "GetDataTask.h"
-#import "AddTorrentTask.h"
 
 
 @interface RemoteManager : NSObject
@@ -24,6 +23,4 @@
 - (NSArray *)directoriesInLocation:(NSString *)location;
 - (NSString *)getStatus;
 - (NSDictionary *)clientDefaults;
-- (BOOL)addMagnet:(NSURL *)magnet;
-
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "AddViewController.h"
+#import "ViewController.h"
 
 @interface AddViewController ()
 
@@ -63,11 +64,6 @@
         });
         
     });
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,6 +83,40 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    if (![cell isKindOfClass:[ClientPropertyCell class]]) {
+        if (self.assignedTasks.count > 1) {
+            
+        }
+        else {
+            if (self.assignedTasks.count == 1) {
+                NSURL *url = self.assignedTasks[0];
+                if ([url.scheme isEqualToString:@"magnet"]) {
+                    NSString *link = [url description];
+                    cell.detailTextLabel.text = link;
+                    RemoteTorrent *rTorrent = [[RemoteTorrent alloc] initWithMagnetLink:url];
+                    self.rTorrent = rTorrent;
+                }
+                else {
+                    NSString *filename = [[[url path] componentsSeparatedByString:@"/"] lastObject];
+                    cell.detailTextLabel.text = filename;
+                    RemoteTorrent *rTorrent = [[RemoteTorrent alloc] initWithFileURL:url];
+                    self.rTorrent = rTorrent;
+                    /*
+                     NSString *scheme = [url scheme];
+                     NSLog(@"url recieved: %@", url);
+                     NSLog(@"Called with: %@ scheme", [url scheme]);
+                     NSLog(@"query string: %@", [url query]);
+                     NSLog(@"host: %@", [url host]);
+                     NSLog(@"url path: %@", [url path]);
+                     */
+                }
+            }
+            else {
+                RemoteTorrent *rTorrent = [[RemoteTorrent alloc] initWithArray:self.assignedTasks];
+                self.rTorrent = rTorrent;
+            }
+        }
+    }
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     if (_clientDefaults) {
         if ([cell isKindOfClass:[ClientPropertyCell class]]) {
@@ -246,6 +276,9 @@
 }
 
 - (void)taskEnded {
+    self.assignedTasks = nil;
+    TaskManager *tManager = [TaskManager sharedInstance];
+    tManager.remainingTasks = nil;
     if (_remoteManager) {
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
             [self.remoteManager endConnection];
@@ -256,65 +289,16 @@
 
 - (IBAction)cancel:(id)sender {
     [self taskEnded];
+    [self dismissViewControllerAnimated:TRUE completion:nil];
 }
 
 - (IBAction)done:(id)sender {
-    [self taskEnded];
+    _rTorrent.torrentProperties = _manifestedProperties;
+    BOOL success = [_rTorrent execute];
+    if (success) {
+        [self taskEnded];
+        [self dismissViewControllerAnimated:TRUE completion:nil];
+    }
 }
-
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

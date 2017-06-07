@@ -32,9 +32,18 @@
 }
 
 - (void)respondToTorrent {
-    NSLog(@"%@", _remoteManager);
     TaskManager *tManager = [TaskManager sharedInstance];
     NSMutableArray *remainingTasks = tManager.remainingTasks;
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController * vc = (UINavigationController *)[sb instantiateViewControllerWithIdentifier:@"AddNavigationController"];
+    AddViewController *addVC = (AddViewController *) [vc topViewController];
+    addVC.assignedTasks = remainingTasks;
+    //NSLog(@"defaults %@", [mngr clientDefaults]);
+    dispatch_async(dispatch_get_main_queue(), ^(void){
+        [self showViewController:vc sender:nil];
+        //Run UI Updates
+    });
+    /*
     for (NSURL *task in remainingTasks) {
         NSString *scheme = [task scheme];
         if ([scheme isEqualToString:@"magnet"]) {
@@ -48,6 +57,7 @@
             
         }
     }
+     */
     /*
     NSURL *url = [NSMutableArray arrayWithArray:tManager.remainingTasks][0];
     NSString *scheme = [url scheme];
@@ -76,16 +86,10 @@
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
             RemoteManager *mngr = [[RemoteManager alloc] initWithConnection];
             self.remoteManager = mngr;
-            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UINavigationController * vc = (UINavigationController *)[sb instantiateViewControllerWithIdentifier:@"AddNavigationController"];
-            //NSLog(@"defaults %@", [mngr clientDefaults]);
-            dispatch_async(dispatch_get_main_queue(), ^(void){
-                [self showViewController:vc sender:nil];
-                //Run UI Updates
-            });
             if ([ViewController remainingTasks].count > 0) {
                 [self respondToTorrent];
-            }        });
+            }
+        });
     }
 }
 
