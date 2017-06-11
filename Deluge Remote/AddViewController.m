@@ -289,6 +289,7 @@
 
 - (IBAction)done:(id)sender {
     _rTorrent.torrentProperties = _manifestedProperties;
+    _rTorrent.session = self.remoteManager.session;
     BOOL success = [_rTorrent execute];
     if (success) {
         [self taskEnded];

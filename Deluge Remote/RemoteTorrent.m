@@ -36,7 +36,7 @@
 }
 
 - (BOOL) execute {
-    AddTorrentTask *aTask = [AddTorrentTask init];
+    AddTorrentTask *aTask = [AddTorrentTask new];
     [aTask setValuesForKeysWithDictionary:self.torrentProperties];
     aTask.rTorrent = self;
     aTask.session = _session;

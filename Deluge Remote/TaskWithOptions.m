@@ -26,36 +26,36 @@
 
 - (NSDictionary *)getActiveProperties {
     NSMutableDictionary *activeProperties = [NSMutableDictionary new];
-    if (_maxConnections)
-        [activeProperties addEntriesFromDictionary:@{@"max_connections":_maxConnections}];
-    if (_maxUploadSlots)
-        [activeProperties addEntriesFromDictionary:@{@"max_upload_slots":_maxUploadSlots}];
-    if (_maxUploadSpeed)
-        [activeProperties addEntriesFromDictionary:@{@"max_upload_speed":_maxUploadSpeed}];
-    if (_maxDownloadSpeed)
-        [activeProperties addEntriesFromDictionary:@{@"max_download_speed":_maxDownloadSpeed}];
-    if (_prioritizedFirstLast)
-        [activeProperties addEntriesFromDictionary:@{@"prioritize_first_last_pieces":_prioritizedFirstLast}];
-    if (_sequentialDownload)
-        [activeProperties addEntriesFromDictionary:@{@"sequential_download":_sequentialDownload}];
-    if (_compactAllocation)
-        [activeProperties addEntriesFromDictionary:@{@"compact_allocation":_compactAllocation}];
-    if (_downloadLocation)
-        [activeProperties addEntriesFromDictionary:@{@"download_location":_downloadLocation}];
-    if (_autoManaged)
-        [activeProperties addEntriesFromDictionary:@{@"auto_managed":_autoManaged}];
-    if (_stopSeedAtRatio)
-        [activeProperties addEntriesFromDictionary:@{@"stop_at_ratio":_stopSeedAtRatio}];
-    if (_stopSeedRatio)
-        [activeProperties addEntriesFromDictionary:@{@"stop_ratio":_stopSeedRatio}];
-    if (_removeAtMaxRatio)
-        [activeProperties addEntriesFromDictionary:@{@"remove_at_ratio":_removeAtMaxRatio}];
-    if (_moveWhenComplete)
-        [activeProperties addEntriesFromDictionary:@{@"move_completed":_moveWhenComplete}];
-    if (_moveWhenCompletePath)
-        [activeProperties addEntriesFromDictionary:@{@"move_completed_path":_moveWhenCompletePath}];
-    if (_addAsPaused)
-        [activeProperties addEntriesFromDictionary:@{@"add_paused":_addAsPaused}];
+    if (_max_connections)
+        [activeProperties addEntriesFromDictionary:@{@"max_connections":_max_connections}];
+    if (_max_upload_slots)
+        [activeProperties addEntriesFromDictionary:@{@"max_upload_slots":_max_upload_slots}];
+    if (_max_upload_speed)
+        [activeProperties addEntriesFromDictionary:@{@"max_upload_speed":_max_upload_speed}];
+    if (_max_download_speed)
+        [activeProperties addEntriesFromDictionary:@{@"max_download_speed":_max_download_speed}];
+    if (_prioritize_first_last_pieces)
+        [activeProperties addEntriesFromDictionary:@{@"prioritize_first_last_pieces":_prioritize_first_last_pieces}];
+    if (_sequential_download)
+        [activeProperties addEntriesFromDictionary:@{@"sequential_download":_sequential_download}];
+    if (_compact_allocation)
+        [activeProperties addEntriesFromDictionary:@{@"compact_allocation":_compact_allocation}];
+    if (_download_location)
+        [activeProperties addEntriesFromDictionary:@{@"download_location":_download_location}];
+    if (_auto_managed)
+        [activeProperties addEntriesFromDictionary:@{@"auto_managed":_auto_managed}];
+    if (_stop_at_ratio)
+        [activeProperties addEntriesFromDictionary:@{@"stop_at_ratio":_stop_at_ratio}];
+    if (_stop_ratio)
+        [activeProperties addEntriesFromDictionary:@{@"stop_ratio":_stop_ratio}];
+    if (_remove_at_ratio)
+        [activeProperties addEntriesFromDictionary:@{@"remove_at_ratio":_remove_at_ratio}];
+    if (_move_completed)
+        [activeProperties addEntriesFromDictionary:@{@"move_completed":_move_completed}];
+    if (_move_completed_path)
+        [activeProperties addEntriesFromDictionary:@{@"move_completed_path":_move_completed_path}];
+    if (_add_paused)
+        [activeProperties addEntriesFromDictionary:@{@"add_paused":_add_paused}];
     if (_shared)
         [activeProperties addEntriesFromDictionary:@{@"shared":_shared}];
     return [activeProperties copy];

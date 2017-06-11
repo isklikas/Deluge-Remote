@@ -33,21 +33,21 @@
 
 @interface TaskWithOptions : TorrentTask
 
-@property NSNumber *maxConnections;
-@property NSNumber *maxUploadSlots;
-@property NSNumber *maxUploadSpeed;
-@property NSNumber *maxDownloadSpeed;
-@property NSNumber /* as BOOL */ *prioritizedFirstLast;
-@property NSNumber /* as BOOL */ *sequentialDownload;
-@property NSNumber /* as BOOL */ *compactAllocation;
-@property NSString *downloadLocation;
-@property NSNumber /* as BOOL */ *autoManaged;
-@property NSNumber /* as BOOL */ *stopSeedAtRatio;
-@property NSNumber *stopSeedRatio;
-@property NSNumber /* as BOOL */ *removeAtMaxRatio;
-@property NSNumber /* as BOOL */ *moveWhenComplete;
-@property NSString *moveWhenCompletePath;
-@property NSNumber /* as BOOL */ *addAsPaused;
+@property NSNumber *max_connections;
+@property NSNumber *max_upload_slots;
+@property NSNumber *max_upload_speed;
+@property NSNumber *max_download_speed;
+@property NSNumber /* as BOOL */ *prioritize_first_last_pieces;
+@property NSNumber /* as BOOL */ *sequential_download;
+@property NSNumber /* as BOOL */ *compact_allocation;
+@property NSString *download_location;
+@property NSNumber /* as BOOL */ *auto_managed;
+@property NSNumber /* as BOOL */ *stop_at_ratio;
+@property NSNumber *stop_ratio;
+@property NSNumber /* as BOOL */ *remove_at_ratio;
+@property NSNumber /* as BOOL */ *move_completed;
+@property NSString *move_completed_path;
+@property NSNumber /* as BOOL */ *add_paused;
 @property NSNumber /* as BOOL */ *shared;
 
 
