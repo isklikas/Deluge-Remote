@@ -22,5 +22,6 @@
 - (void)endConnection;
 - (NSArray *)directoriesInLocation:(NSString *)location;
 - (NSString *)getStatus;
+- (NSArray *)getRunningTorrents;
 - (NSDictionary *)clientDefaults;
 @end

@@ -38,38 +38,10 @@
     UINavigationController * vc = (UINavigationController *)[sb instantiateViewControllerWithIdentifier:@"AddNavigationController"];
     AddViewController *addVC = (AddViewController *) [vc topViewController];
     addVC.assignedTasks = remainingTasks;
-    //NSLog(@"defaults %@", [mngr clientDefaults]);
     dispatch_async(dispatch_get_main_queue(), ^(void){
         [self showViewController:vc sender:nil];
         //Run UI Updates
     });
-    /*
-    for (NSURL *task in remainingTasks) {
-        NSString *scheme = [task scheme];
-        if ([scheme isEqualToString:@"magnet"]) {
-            NSLog(@"%@", _remoteManager);
-            BOOL success = [_remoteManager addMagnet:task];
-            if (success) {
-                NSLog(@"yayy");
-            }
-        }
-        else {
-            
-        }
-    }
-     */
-    /*
-    NSURL *url = [NSMutableArray arrayWithArray:tManager.remainingTasks][0];
-    NSString *scheme = [url scheme];
-    NSLog(@"url recieved: %@", url);
-    NSLog(@"Called with: %@ scheme", [url scheme]);
-    NSLog(@"query string: %@", [url query]);
-    NSLog(@"host: %@", [url host]);
-    NSLog(@"url path: %@", [url path]);
-    
-    
-    NSLog(@"YIPEEEEE");
-     */
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -86,6 +58,7 @@
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
             RemoteManager *mngr = [[RemoteManager alloc] initWithConnection];
             self.remoteManager = mngr;
+            NSLog(@"%@", [mngr getRunningTorrents]);
             if ([ViewController remainingTasks].count > 0) {
                 [self respondToTorrent];
             }

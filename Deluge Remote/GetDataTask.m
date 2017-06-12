@@ -31,6 +31,23 @@
     return status;
 }
 
+- (NSArray *)getRunningTorrents {
+    //Returns an array of torrent IDs
+    self.cmdString = @"client.core.get_session_state().addCallback(on_get_status)";
+    [self writeToTaskScript];
+    NSString *state = [self executeTask];
+    [self cleanUp];
+    NSArray *rawState = [state componentsSeparatedByString:@"\""];
+    NSMutableArray *runningTorrents = [NSMutableArray new];
+    if (rawState.count > 1) {
+        for (int i = 1; i < rawState.count; i += 2) {
+            NSString *torrentID = rawState[i];
+            [runningTorrents addObject:torrentID];
+        }
+    }
+    return [runningTorrents copy];
+}
+
 - (NSDictionary *)clientDefaults {
     self.cmdString = @"client.core.get_config_values([\"max_connections\", \"max_upload_slots\", \"max_upload_speed\", \"max_download_speed\", \"prioritize_first_last_pieces\", \"sequential_download\", \"compact_allocation\", \"download_location\", \"auto_managed\", \"stop_at_ratio\", \"stop_ratio\", \"remove_at_ratio\", \"move_completed\", \"move_completed_path\", \"add_paused\", \"shared\"]).addCallback(on_get_status)";
     [self writeToTaskScript];

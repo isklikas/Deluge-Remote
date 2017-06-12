@@ -12,5 +12,6 @@
 
 - (NSString *)getStatus;
 - (NSDictionary *)clientDefaults;
+- (NSArray *)getRunningTorrents;
 
 @end

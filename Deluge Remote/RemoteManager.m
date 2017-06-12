@@ -61,6 +61,15 @@
     return resultingDirs;
 }
 
+- (NSArray *)getRunningTorrents {
+    //Returns an array of torrent IDs
+    GetDataTask *dTask = [[GetDataTask alloc] init];
+    dTask.session = _session;
+    NSArray *runningTorrents = [dTask getRunningTorrents];
+    return runningTorrents;
+    
+}
+
 - (NSString *)getStatus {
     GetDataTask *dTask = [[GetDataTask alloc] init];
     dTask.session = _session;
