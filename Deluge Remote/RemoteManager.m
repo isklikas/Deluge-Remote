@@ -25,7 +25,11 @@
             [session authenticateByPassword:[item readPasswordAndReturnError:nil]];
             if (session.isAuthorized) {
                 NSLog(@"Authentication succeeded");
-                NSString *passManPath = [[NSBundle mainBundle] pathForResource:@"PasswordManager" ofType:@"py"];
+                NSString *passManPath = [[NSBundle mainBundle] pathForResource:@"PasswordManager" ofType:@"py"]; // located in main bundle
+                NSData *taskPyData = [NSData dataWithContentsOfFile:passManPath]; // image data
+                // get the path of shared folder
+                passManPath = [[[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] path] stringByAppendingPathComponent:@"PasswordManager.py"]; // where to store your image
+                [taskPyData writeToFile:passManPath atomically:YES];
                 self.session = session;
                 self.homeLocation = [[NSUserDefaults standardUserDefaults] stringForKey:@"delugeHomeLocation"];
                 [self setUpPass];
@@ -37,12 +41,43 @@
     return nil;
 }
 
+- (void) connect {
+    NSError *error;
+    NSArray *passwordItems = [KeychainPasswordItem passwordItemsForService:@"com.isklikas.Deluge-Remote" accessGroup:nil error:&error];
+    NSString *serverAddress = [[NSUserDefaults standardUserDefaults] stringForKey:@"serverAddress"];
+    if (passwordItems.count > 0 && serverAddress != nil) {
+        KeychainPasswordItem *item = passwordItems[0];
+        NSString *server = [serverAddress stringByAppendingString:@":22"];
+        NMSSHSession *session = [NMSSHSession connectToHost:server withUsername:item.account];
+        if (session.isConnected) {
+            [session authenticateByPassword:[item readPasswordAndReturnError:nil]];
+            if (session.isAuthorized) {
+                NSLog(@"Authentication succeeded");
+                NSString *passManPath = [[NSBundle mainBundle] pathForResource:@"PasswordManager" ofType:@"py"]; // located in main bundle
+                NSData *taskPyData = [NSData dataWithContentsOfFile:passManPath]; // image data
+                // get the path of shared folder
+                passManPath = [[[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] path] stringByAppendingPathComponent:@"PasswordManager.py"]; // where to store your image
+                [taskPyData writeToFile:passManPath atomically:YES];
+                self.session = session;
+                self.homeLocation = [[NSUserDefaults standardUserDefaults] stringForKey:@"delugeHomeLocation"];
+                [self setUpPass];
+                [_session.channel uploadFile:passManPath to:@"/tmp/"];
+            }
+        }
+    }
+    
+}
+
 - (void) setUpPass {
     NSString *delugeHomeDir = self.homeLocation;//@"/var/lib/deluge";
     NSString *authLocation = [delugeHomeDir stringByAppendingPathComponent:@".config/deluge/auth"];
     NSString *authData = [_session.channel execute:[NSString stringWithFormat:@"cat %@", authLocation] error:nil];
     NSString *password = [[[authData componentsSeparatedByString:@"localclient:"] objectAtIndex:1] componentsSeparatedByString:@":"][0];
-    NSString *passManPath = [[NSBundle mainBundle] pathForResource:@"PasswordManager" ofType:@"py"];
+    NSString *passManPath = [[NSBundle mainBundle] pathForResource:@"PasswordManager" ofType:@"py"]; // located in main bundle
+    NSData *taskPyData = [NSData dataWithContentsOfFile:passManPath]; // image data
+    // get the path of shared folder
+    passManPath = [[[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] path] stringByAppendingPathComponent:@"PasswordManager.py"]; // where to store your image
+    [taskPyData writeToFile:passManPath atomically:YES];
     NSString *passManager = [NSString stringWithContentsOfFile:passManPath encoding:NSUTF8StringEncoding error:NULL];
     passManager = [passManager stringByReplacingOccurrencesOfString:@"[PASSWORD HERE]" withString:password];
     [passManager writeToFile:passManPath atomically:TRUE encoding:NSUTF8StringEncoding error:nil];
@@ -70,6 +105,14 @@
     
 }
 
+- (NSDictionary *)getCellDataforTorrentID:(NSString *)torrentID {
+    //Returns all cell necessary properties
+    GetDataTask *dTask = [[GetDataTask alloc] init];
+    dTask.session = _session;
+    NSDictionary *runningTorrents = [dTask getCellDataforTorrentID:torrentID];
+    return runningTorrents;
+}
+
 - (NSString *)getStatus {
     GetDataTask *dTask = [[GetDataTask alloc] init];
     dTask.session = _session;
@@ -83,15 +126,6 @@
     NSDictionary *defaults = [dTask clientDefaults];
     return defaults;
 }
-
-/*
-- (BOOL)addMagnet:(NSURL *)magnet {
-    AddTorrentTask *aTask = [[AddTorrentTask alloc] init];
-    aTask.session = _session;
-    BOOL status = [aTask addTorrentMagnetTask:magnet];
-    return status;
-}
-*/
 
 - (void) endConnection {
     NSError *error;

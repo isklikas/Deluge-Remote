@@ -13,5 +13,7 @@ IB_DESIGNABLE
 @interface ArrowView : UIView
 
 @property (nonatomic) IBInspectable BOOL isDownloading;
+@property (nonatomic) IBInspectable UIColor *downloadingColor;
+@property (nonatomic) IBInspectable UIColor *uploadingColor;
 
 @end

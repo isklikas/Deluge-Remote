@@ -13,5 +13,6 @@
 - (NSString *)getStatus;
 - (NSDictionary *)clientDefaults;
 - (NSArray *)getRunningTorrents;
+- (NSDictionary *)getCellDataforTorrentID:(NSString *)torrentID;
 
 @end

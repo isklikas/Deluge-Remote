@@ -31,6 +31,18 @@
     return status;
 }
 
+- (NSDictionary *)getCellDataforTorrentID:(NSString *)torrentID {
+    //Asks for the data presented on Active Torrent Cells
+    //get_torrent_status(torrent_id, keys, diff=False)
+    self.cmdString = [NSString stringWithFormat:@"torrentID = \"%@\" \n    client.core.get_torrent_status(torrentID, [\"state\", \"paused\", \"progress\", \"is_finished\", \"total_download\", \"total_upload\", \"all_time_download\", \"total_payload_upload\", \"eta\", \"name\", \"total_size\", \"total_uploaded\"], diff=False).addCallback(on_get_status)",torrentID];
+    [self writeToTaskScript];
+    NSString *status = [self executeTask];
+    NSData *data = [status dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    [self cleanUp];
+    return dictionary;
+}
+
 - (NSArray *)getRunningTorrents {
     //Returns an array of torrent IDs
     self.cmdString = @"client.core.get_session_state().addCallback(on_get_status)";

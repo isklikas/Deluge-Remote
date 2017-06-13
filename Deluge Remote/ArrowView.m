@@ -15,9 +15,15 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     /* Set the color that we want to use to draw the line */
+    if (self.downloadingColor == nil) {
+        self.downloadingColor = [UIColor greenColor];
+    }
+    if (self.uploadingColor == nil) {
+        self.downloadingColor = [UIColor blueColor];
+    }
     CGFloat lineWidth = 0.0241*rect.size.width;
     CGFloat middleX = rect.size.width/2;
-    UIColor *arrowColor = _isDownloading? [UIColor greenColor] : [UIColor blueColor];
+    UIColor *arrowColor = _isDownloading? self.downloadingColor: self.uploadingColor;
     [arrowColor set];
     /* Get the current graphics context */
     CGContextRef currentContext = UIGraphicsGetCurrentContext();

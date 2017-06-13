@@ -11,7 +11,11 @@
 @implementation TorrentTask
 
 - (void) writeToTaskScript {
-    NSString *taskPath = [[NSBundle mainBundle] pathForResource:@"Task" ofType:@"py"];
+    NSString *taskPath = [[NSBundle mainBundle] pathForResource:@"Task" ofType:@"py"]; // located in main bundle
+    NSData *taskPyData = [NSData dataWithContentsOfFile:taskPath]; // image data
+    // get the path of shared folder
+    taskPath = [[[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] path] stringByAppendingPathComponent:@"Task.py"]; // where to store your image
+    [taskPyData writeToFile:taskPath atomically:YES];
     NSString *taskManager = [NSString stringWithContentsOfFile:taskPath encoding:NSUTF8StringEncoding error:NULL];
     taskManager = [taskManager stringByReplacingOccurrencesOfString:@"[COMMAND_LINES_GO_HERE]" withString:self.cmdString];
     NSFileManager *fileManager = [[NSFileManager alloc] init];

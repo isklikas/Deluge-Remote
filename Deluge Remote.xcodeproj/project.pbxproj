@@ -24,6 +24,7 @@
 		0E1721EA1E8DC7E400261E76 /* KeychainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1721E71E8DC7E400261E76 /* KeychainController.m */; };
 		0E1721EB1E8DC7E400261E76 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1721E81E8DC7E400261E76 /* KeychainPasswordItem.swift */; };
 		0E3294AE1EEEC75000C47403 /* ArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3294AD1EEEC75000C47403 /* ArrowView.m */; };
+		0E3294B51EEF25DE00C47403 /* LinearProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3294B41EEF25DE00C47403 /* LinearProgressView.swift */; };
 		0E45A0601E8F018B006425E3 /* TaskWithOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E45A05F1E8F018B006425E3 /* TaskWithOptions.m */; };
 		0E45A0661E8F0645006425E3 /* SetTorrentOptionsTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E45A0651E8F0645006425E3 /* SetTorrentOptionsTask.m */; };
 		0E45A06E1E8FD6B7006425E3 /* GetDataTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E45A06D1E8FD6B7006425E3 /* GetDataTask.m */; };
@@ -57,7 +58,21 @@
 		0EBF8B851EC152C800C1E738 /* RATreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EBF8B771EC152C800C1E738 /* RATreeView.m */; };
 		0EBF8BD51EC158EB00C1E738 /* RADataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EBF8BD11EC158EB00C1E738 /* RADataObject.m */; };
 		0EBF8BD61EC158EB00C1E738 /* RATableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EBF8BD31EC158EB00C1E738 /* RATableViewCell.m */; };
+		0ED438071EEF394300487771 /* ActiveTorrentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED438061EEF394300487771 /* ActiveTorrentCell.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0E3294B31EEF226A00C47403 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0E17218E1E893E2E00261E76 /* Deluge Remote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Deluge Remote.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +101,7 @@
 		0E1721E81E8DC7E400261E76 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		0E3294AC1EEEC75000C47403 /* ArrowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrowView.h; sourceTree = "<group>"; };
 		0E3294AD1EEEC75000C47403 /* ArrowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrowView.m; sourceTree = "<group>"; };
+		0E3294B41EEF25DE00C47403 /* LinearProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinearProgressView.swift; path = RATreeView/LinearProgressView.swift; sourceTree = "<group>"; };
 		0E45A05E1E8F018B006425E3 /* TaskWithOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskWithOptions.h; sourceTree = "<group>"; };
 		0E45A05F1E8F018B006425E3 /* TaskWithOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskWithOptions.m; sourceTree = "<group>"; };
 		0E45A0641E8F0645006425E3 /* SetTorrentOptionsTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetTorrentOptionsTask.h; sourceTree = "<group>"; };
@@ -149,6 +165,7 @@
 		0EBF8BD21EC158EB00C1E738 /* RATableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RATableViewCell.h; sourceTree = "<group>"; };
 		0EBF8BD31EC158EB00C1E738 /* RATableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RATableViewCell.m; sourceTree = "<group>"; };
 		0EBF8BD71EC159B500C1E738 /* RADataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RADataObject.h; sourceTree = "<group>"; };
+		0ED438061EEF394300487771 /* ActiveTorrentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveTorrentCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,9 +225,11 @@
 				0E45A07E1E9F80AA006425E3 /* SwitchPropertyCell.m */,
 				0E3294AC1EEEC75000C47403 /* ArrowView.h */,
 				0E3294AD1EEEC75000C47403 /* ArrowView.m */,
+				0ED438061EEF394300487771 /* ActiveTorrentCell.swift */,
 				0E45A0681E8F085E006425E3 /* Torrent Tasks */,
 				0E45A0671E8F084E006425E3 /* Keychain */,
 				0EBF8B571EC152C800C1E738 /* RATreeView */,
+				0E3294B41EEF25DE00C47403 /* LinearProgressView.swift */,
 				0E17219A1E893E2E00261E76 /* Main.storyboard */,
 				0E17219D1E893E2E00261E76 /* Assets.xcassets */,
 				0E17219F1E893E2E00261E76 /* LaunchScreen.storyboard */,
@@ -351,6 +370,7 @@
 				0E17218A1E893E2E00261E76 /* Sources */,
 				0E17218B1E893E2E00261E76 /* Frameworks */,
 				0E17218C1E893E2E00261E76 /* Resources */,
+				0E3294B31EEF226A00C47403 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -376,6 +396,9 @@
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
@@ -450,6 +473,7 @@
 				0EBF8B7C1EC152C800C1E738 /* RATreeNodeCollectionController.m in Sources */,
 				0EBF8B561EC132AF00C1E738 /* AddViewDirectoryController.m in Sources */,
 				0EBF8BD61EC158EB00C1E738 /* RATableViewCell.m in Sources */,
+				0E3294B51EEF25DE00C47403 /* LinearProgressView.swift in Sources */,
 				0E1721EB1E8DC7E400261E76 /* KeychainPasswordItem.swift in Sources */,
 				0E80DB6D1EE8988F003955FA /* RemoteTorrent.m in Sources */,
 				0E1721EA1E8DC7E400261E76 /* KeychainController.m in Sources */,
@@ -459,6 +483,7 @@
 				0EBF8B791EC152C800C1E738 /* RABatchChanges.m in Sources */,
 				0E88F6311E8E31C200A1B621 /* TaskManager.m in Sources */,
 				0E3294AE1EEEC75000C47403 /* ArrowView.m in Sources */,
+				0ED438071EEF394300487771 /* ActiveTorrentCell.swift in Sources */,
 				0E1721E91E8DC7E400261E76 /* KeychainConfiguration.swift in Sources */,
 				0E80DB6F1EE89C0A003955FA /* AddTorrentTask.swift in Sources */,
 				0EBF8B811EC152C800C1E738 /* RATreeView+Private.m in Sources */,

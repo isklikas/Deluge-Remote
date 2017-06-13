@@ -18,10 +18,12 @@
 @property (retain) NSString *homeLocation;
 
 - (id) initWithConnection;
+- (void) connect;
 - (void)setUpPass;
 - (void)endConnection;
 - (NSArray *)directoriesInLocation:(NSString *)location;
 - (NSString *)getStatus;
 - (NSArray *)getRunningTorrents;
 - (NSDictionary *)clientDefaults;
+- (NSDictionary *)getCellDataforTorrentID:(NSString *)torrentID;
 @end

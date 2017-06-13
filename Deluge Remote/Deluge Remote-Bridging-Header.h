@@ -3,4 +3,6 @@
 //
 
 #import "RemoteTorrent.h"
+#import "RemoteManager.h"
 #import "TaskWithOptions.h"
+#import "ArrowView.h"

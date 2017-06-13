@@ -13,9 +13,12 @@
 #import "TaskManager.h"
 #import "AddViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property RemoteManager *remoteManager;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property NSMutableArray *torrentIDs;
+
 
 + (NSArray *) remainingTasks;
 + (void) addTask:(NSURL *)task;
