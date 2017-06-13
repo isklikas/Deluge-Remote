@@ -18,6 +18,7 @@
 @property RemoteManager *remoteManager;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *torrentIDs;
+@property NSTimer *timer;
 
 
 + (NSArray *) remainingTasks;

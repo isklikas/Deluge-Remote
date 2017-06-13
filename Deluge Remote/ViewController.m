@@ -63,13 +63,15 @@
             [self refreshRunningTorrents];
             dispatch_async(dispatch_get_main_queue(), ^(void){
                 //Run UI Updates
-                [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(refreshRunningTorrents) userInfo:nil repeats:YES];
+                self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(refreshRunningTorrents) userInfo:nil repeats:YES];
             });
         });
     }
 }
 
 - (void)refreshRunningTorrents {
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+    
     NSArray *activeTorrents = [self.remoteManager getRunningTorrents];
     if (!self.torrentIDs) {
         self.torrentIDs = [NSMutableArray new];
@@ -94,6 +96,7 @@
             [self.tableView reloadData];
         });
     }
+    });
 }
 
 - (void)viewDidLoad {
@@ -103,6 +106,11 @@
 - (void)viewWillDisappear:(BOOL)animated {
     TaskManager *tManager = [TaskManager sharedInstance];
     tManager.controlInstance = nil;
+    [self.timer invalidate];
+    for (int i = 0; i < self.torrentIDs.count; i++) {
+        ActiveTorrentCell *aCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        [aCell.timer invalidate];
+    }
     if (_remoteManager) {
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
             [self.remoteManager endConnection];

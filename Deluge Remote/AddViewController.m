@@ -183,7 +183,7 @@
     else {
         NSInteger value = [tField.text integerValue];
         value = value + difference;
-        [tField setText:[NSString stringWithFormat:@"%ld", value]];
+        [tField setText:[NSString stringWithFormat:@"%ld", (long)value]];
         NSNumber *numValue = [NSNumber numberWithInteger:value];
         [self.manifestedProperties setObject:numValue forKey:keyString];
     }

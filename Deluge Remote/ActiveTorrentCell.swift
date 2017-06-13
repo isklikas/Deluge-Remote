@@ -9,10 +9,11 @@
 import UIKit
 
 class ActiveTorrentCell: UITableViewCell {
+    var timer: Timer?
     var torrentID: String? {
         didSet {
             self.setUpView()
-            Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.setUpView), userInfo: nil, repeats: true)
+            self.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.setUpView), userInfo: nil, repeats: true)
         }
     }
     var remoteManager: RemoteManager?

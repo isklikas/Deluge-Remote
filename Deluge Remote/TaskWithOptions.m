@@ -67,7 +67,7 @@
     for (NSString *dictKey in activeKeys) {
         NSString *valueAsString;
         if ([dictKey isEqualToString:@"prioritize_first_last_pieces"] || [dictKey isEqualToString:@"sequential_download"] || [dictKey isEqualToString:@"compact_allocation"] || [dictKey isEqualToString:@"auto_managed"] || [dictKey isEqualToString:@"stop_at_ratio"] || [dictKey isEqualToString:@"remove_at_ratio"] || [dictKey isEqualToString:@"move_completed"] || [dictKey isEqualToString:@"add_paused"] || [dictKey isEqualToString:@"shared"]) {
-            BOOL value = [activeProperties objectForKey:dictKey];
+            BOOL value = [[activeProperties objectForKey:dictKey] boolValue];
             if (value) {
                 valueAsString = @"True";
             } else {
