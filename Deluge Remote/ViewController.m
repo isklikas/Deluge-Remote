@@ -71,6 +71,15 @@
 
 - (void)refreshRunningTorrents {
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        for (NSString *torrentID in self.torrentIDs) {
+            NSInteger i = [self.torrentIDs indexOfObject:torrentID];
+            NSDictionary *cellDict = [self.remoteManager getCellDataforTorrentID:torrentID];
+            ActiveTorrentCell *aCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                aCell.cellProperties = cellDict;
+            });
+        }
+
     
     NSArray *activeTorrents = [self.remoteManager getRunningTorrents];
     if (!self.torrentIDs) {
@@ -101,16 +110,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //Clean up any leftover files
+    NSFileManager *fManager = [NSFileManager defaultManager];
+    NSString *docsDir = [[[fManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] path];
+    NSArray *filesAtDocDir = [self listFileAtPath:docsDir];
+    for (NSString *file in filesAtDocDir) {
+        if (![file isEqualToString:@"Inbox"]) {
+            NSError *error;
+            [[[NSFileManager alloc] init] removeItemAtPath:[docsDir stringByAppendingPathComponent:file] error:&error];
+        }
+    }
+}
+
+-(NSArray *)listFileAtPath:(NSString *)path {
+    int count;
+    NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL];
+    for (count = 0; count < (int)[directoryContent count]; count++) {
+    }
+    return directoryContent;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     TaskManager *tManager = [TaskManager sharedInstance];
     tManager.controlInstance = nil;
     [self.timer invalidate];
-    for (int i = 0; i < self.torrentIDs.count; i++) {
-        ActiveTorrentCell *aCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-        [aCell.timer invalidate];
-    }
     if (_remoteManager) {
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
             [self.remoteManager endConnection];

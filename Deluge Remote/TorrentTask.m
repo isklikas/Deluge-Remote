@@ -34,7 +34,7 @@
 }
 
 - (id) executeTask {
-    NSError *error = nil;
+    NSError *error;
     NSString *filePath = self.pyName;
     NSString *fName = [NSString stringWithFormat:@"Task%@.py", self.writeIndex];
     BOOL success = [_session.channel uploadFile:filePath to:@"/tmp/"];

@@ -4,5 +4,6 @@
 
 #import "RemoteTorrent.h"
 #import "RemoteManager.h"
+#import "GetDataTask.h"
 #import "TaskWithOptions.h"
 #import "ArrowView.h"

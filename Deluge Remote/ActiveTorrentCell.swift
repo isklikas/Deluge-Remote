@@ -9,13 +9,13 @@
 import UIKit
 
 class ActiveTorrentCell: UITableViewCell {
-    var timer: Timer?
-    var torrentID: String? {
+    var torrentID: String?
+    var cellProperties: NSDictionary? {
         didSet {
             self.setUpView()
-            self.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.setUpView), userInfo: nil, repeats: true)
         }
     }
+    
     var remoteManager: RemoteManager?
     @IBOutlet weak var arrowView: ArrowView!
     @IBOutlet weak var progressView: LinearProgressView!
@@ -25,7 +25,7 @@ class ActiveTorrentCell: UITableViewCell {
     @IBOutlet weak var totalSizeLabel: UILabel!
     
     @objc func setUpView() {
-        let torrentProperties = self.remoteManager?.getCellDataforTorrentID(self.torrentID!)
+        let torrentProperties = self.cellProperties
         if (torrentProperties != nil) {
             let torrentName: String = torrentProperties!["name"] as! String
             let totalSize: Int = torrentProperties!["total_size"] as! Int
@@ -33,8 +33,6 @@ class ActiveTorrentCell: UITableViewCell {
             let progress: Int  = torrentProperties!["progress"] as! Int
             let uploadedBytes: Int  = torrentProperties!["total_uploaded"] as! Int
             let state: String = torrentProperties!["state"] as! String
-            
-            //Now set the views accordingly
             self.torrentNameLabel.text = torrentName
             self.totalSizeLabel.text = self.getLargestByteMeasure(size: totalSize)
             self.uploadedBytesLabel.text = self.getLargestByteMeasure(size: uploadedBytes)
